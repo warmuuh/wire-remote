@@ -5,7 +5,7 @@ var wire = require("wire");
 wire({
 	server: {module: './server', rmi:"server"},
 
-	plugins:[{module: './wire-remote'}]
+	plugins:[{module: '../../wire-remote'}]
 
 }, {require:require}).then(function(ctx){
 	console.log("running....");

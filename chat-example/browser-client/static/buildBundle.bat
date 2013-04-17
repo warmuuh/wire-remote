@@ -1,0 +1,1 @@
+browserify -r shoe -r dnode -r domready -r ../../../wire-remote -o bundle.js

@@ -11,7 +11,7 @@ wire({
 	client: {module: "./client"},
 	
 	
-	plugins:[{module: './wire-remote', host: "http://localhost:9999"},
+	plugins:[{module: '../../wire-remote', host: "http://localhost:9999"},
 			 {module: 'yaap/wire'}]
 
 }, {require:require}).then(function(ctx){

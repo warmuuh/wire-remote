@@ -5,7 +5,7 @@ var prompt = require("prompt");
 
 module.exports = {
 		onMessage: function(msg){
-			console.log("\n>"+msg + "\n");
+			console.log(">"+msg + "\n");
 		},
 		start: function(server)/*@PostConstruct @Autowired*/{
 		
