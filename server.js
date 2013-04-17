@@ -3,12 +3,21 @@
 var wire = require("wire");
 
 
-
+var clients = [];
 
 wire({
 
 	svrBean: {literal: {
-		doSomething: function(){console.log("Hello Server"); return "hh";}
+		registerClient: function(c){
+			console.log(this);
+			this.test = "a";
+			clients.push(c);
+		},
+		sendMessage: function(msg){
+			for(var i = 0; i < clients.length; ++i){
+				clients[i].onMessage(msg);
+			}
+		}
 	}, rmi:"server"},
 	
 	
@@ -18,11 +27,6 @@ wire({
 	plugins:[{module: './wire-remote'}]
 
 }, {require:require}).then(function(ctx){
-
-
 	console.log("running....");
-	console.log(ctx.svrBean);
-
-
 
 }, function(err){console.error(err);});
