@@ -1,9 +1,7 @@
 /*jshint smarttabs:true */
 "use strict";
-
-var dnode = require("dnode");
-var when = require("when");
-
+(function(define) {
+define(["when", "dnode"], function(when, dnode) {
 
 
 var dnodeServ = {};
@@ -66,7 +64,7 @@ function publishRemote(resolver, spec, wire){
 
 
 
-module.exports = {wire$plugin: function(ready, destroyed, options) {
+return {wire$plugin: function(ready, destroyed, options) {
 							 
 								//when(ready).then(function(){
 								if (options.host === undefined)
@@ -84,3 +82,8 @@ module.exports = {wire$plugin: function(ready, destroyed, options) {
 											rmi: {ready: publishRemote}
 										}};
                         }}; 
+                        
+                        
+                        
+                        
+});})(typeof define == 'function'? define: function(deps, factory) {module.exports = factory.apply(this, deps.map(function(x) {return require(x);}));});
