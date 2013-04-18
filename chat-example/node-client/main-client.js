@@ -12,7 +12,7 @@ wire({
 	
 	
 	plugins:[{module: '../../wire-remote', host: "http://localhost:9999"},
-			 {module: 'yaap/wire'}]
+             {module: 'yaap/wire'}]
 
 }, {require:require}).then(function(ctx){
 	console.log("running....");
