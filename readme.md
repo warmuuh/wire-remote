@@ -1,6 +1,6 @@
 #wire-remote
-A plugin for wire to connect wire-contexts 'over the wire' ;P
-(it uses dnode for asynchronous rpc)
+A plugin for [wire](https://github.com/cujojs/wire) to connect wire-contexts 'over the wire' ;P
+(it uses [dnode](https://github.com/substack/dnode) for asynchronous rpc)
 
 With that plugin, you can easily code interactions between server and client without hassling with REST, JSON-marshalling or similar. 
 Just make your bean available for remote-access and thats it. Example:
@@ -39,6 +39,7 @@ wire({
 ```
 As you can see, the clientside aquires a remote-instance by `remote:'server'` and can then use it like a normal bean (Calling doSomething which resides at server side). 
 The callback will be called on clientside! so the connection is bidirectional.
+Output on server would be obviously: "Hello from client" while the output on client would be "hello from server". 
 
 
 ##Chat example
