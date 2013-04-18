@@ -18,9 +18,14 @@
 			},
 			 packages: {
 		        wire: { path: 'components/wire', main: 'wire'},
+            "wire-remote": { path: 'components/wire-remote', main: 'wireplugin'},
             when: { path: 'components/when/', main: 'when'},
             meld: { path: 'components/meld', main: 'meld' },
             yaap: { path: 'components/yaap/yaap', main: 'yaap'},
+            
+            dnode: { path: 'browserify', main: 'dnode'},
+            domready: { path: 'browserify', main: 'domready'},
+            shoe: { path: 'browserify', main: 'shoe'},
             
             underscore:{ path: 'components/underscore', main: 'underscore',
 		        		config: {moduleLoader: 'curl/loader/cjsm11'}
@@ -48,29 +53,14 @@
 <div id="result"></div>
 
 <script src="./components/curl/src/curl.js"></script>
-<script src="bundle.js"></script>
+<script src="browserify/bundle.js"></script>
 <script type="text/javascript">
 
-curl(['spec', 'wire']).then(function(spec, wire){
-  
-  wire(spec).then(function(ctx){
-
-  	console.log("----- initialized -----");
-  	
-    
-    
-    
-  },function(err){
-  	console.log(""+err);
-  })
-
-});
-
-
-
-
-
-
+curl(['wire!spec']).then(function(ctx){
+  console.log("----- initialized -----");
+},function(err){
+  console.log(""+err);
+})
 
 </script>
 
